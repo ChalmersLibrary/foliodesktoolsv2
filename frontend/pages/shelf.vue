@@ -10,9 +10,8 @@
       </span>
       <ShelfClearceList class="avoidPageBreak" :shelfList="shelfList" />
     </div>
+    <ShelfHelp class="noprint" />
   </div>
-  <!-- {{ selectedLibrary }}
-  {{ shelfList }} -->
 </template>
 
 <!-- <script>

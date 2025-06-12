@@ -1,7 +1,9 @@
 <template>
+  <div class="noprint" v-if="finishedLoading">
+    <span>Last updated: <span>{{ updateTime }}</span></span><span class="btn-noborder" @click="getSlips()">🔄</span>
+  </div>
   <div class="noprint librarylist" v-if="requests.length > 0">
     <span class="btn bottom-margin" :class="{active: lib == selectedLibrary}" v-for="lib in libs" :key="lib" @click="select(lib)">{{lib}}</span>
-    <span>Last updated: <span>{{ updateTime }}</span></span><span class="btn-noborder" @click="getSlips()">🔄</span>
   </div>
   <div v-if="finishedLoading && selectedLibrary">
     <div class="noprint bottom-margin">
@@ -77,6 +79,7 @@
   </div>
   <!-- <div v-else-if="!selectedLibrary && updated && requests && requests.length>0">Select a library above.</div>
   <div v-else-if="updated">Nothing paged</div> -->
+  <PageHelp class="noprint" />
 </template>
 
 <script setup>
@@ -106,6 +109,7 @@
   const getSlips = async () => {
     updated.value = Date.now()
     finishedLoading.value = false
+    requests.value=[]
     const { data: slips } = await useFetch('/api/getPagingSlips', {server: false})
 
     requests.value = slips.value.filter(request => {
