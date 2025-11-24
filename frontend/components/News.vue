@@ -1,6 +1,12 @@
 <template>
   <div>
     <h3>Nyheter i diskappen</h3>
+    <h4>24 nov 2025</h4>
+    <div>
+      <ul>
+        <li>Ändrar nu patron-pin istället för password</li>
+      </ul>
+    </div>
     <h4>12 juni 2025</h4>
     <div>
       <ul>
