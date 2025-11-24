@@ -1,0 +1,46 @@
+@OKAPIURL={{$dotenv OKAPIURL}}
+@OKAPITENANT={{$dotenv OKAPITENANT}}
+@OKAPIUSER={{$dotenv OKAPIUSER}}
+@OKAPIPWD={{$dotenv OKAPIPWD}}
+
+#Login Kong
+POST {{OKAPIURL}}/authn/login-with-expiry
+Accept: application/json
+Content-Type: application/json
+x-okapi-tenant: {{OKAPITENANT}}
+
+{
+  "username":"{{OKAPIUSER}}",
+  "password":"{{OKAPIPWD}}"
+}
+
+###
+# Get User
+GET {{OKAPIURL}}/users?query=username=6202048093
+Accept: application/json
+x-okapi-tenant: {{OKAPITENANT}}
+
+###
+# Post pin
+POST {{OKAPIURL}}/patron-pin
+Accept: text/plain
+Content-Type: application/json
+x-okapi-tenant: {{OKAPITENANT}}
+
+{
+  "id":"9082261a-0305-4242-a371-96348a4025ec",
+  "pin":"189404"
+}
+
+###
+# Verify pin
+POST {{OKAPIURL}}/patron-pin/verify
+Accept: text/plain
+Content-Type: application/json
+x-okapi-tenant: {{OKAPITENANT}}
+
+{
+  "id":"9082261a-0305-4242-a371-96348a4025ec",
+  "pin":"181818"
+}
+
