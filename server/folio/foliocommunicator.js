@@ -14,17 +14,11 @@ class FolioCommunicator {
   async createOrUpdateCredentials(userId, password) {
     await this._checkSession()
 
-    try {
-      let credentialsExists = await this._getCredentialsExists(userId);
-  
-      if(credentialsExists) {
-        await this._removeCredentials(userId);
-      }
-  
-      let path = "/authn/credentials";
+    try {  
+      let path = "/patron-pin";
       let body = {
-        userId: userId,
-        password: password
+        id: userId,
+        pin: password
       };
   
       return await this.session.folioFetch(path, { json: body });
@@ -129,7 +123,7 @@ class FolioCommunicator {
   }
 
   async _login() {
-    console.log('Logging in!')
+    // console.log('Logging in!')
     
     this.service = Folio.service(this.url)
     this.session = await this.service.login(this.tenant, this.username, this.password)

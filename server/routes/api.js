@@ -83,7 +83,7 @@ router.post('/user/changepin', verifyToken, async (req,res) => {
   let username = req.body.username
   let password = req.body.password
 
-  console.log(username, password);
+  // console.log(username, password);
   
 
   try {
