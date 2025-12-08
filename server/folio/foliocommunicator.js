@@ -52,7 +52,7 @@ class FolioCommunicator {
   async getServicePointsWithHoldShelf() {
     await this._checkSession()
     try {
-      let response = await this.session.folioFetch('/service-points')
+      let response = await this.session.folioFetch('/service-points?limit=100')
       let sp = response.servicepoints.filter(lib => lib.holdShelfExpiryPeriod != null)
       return sp
     } catch (error) {
