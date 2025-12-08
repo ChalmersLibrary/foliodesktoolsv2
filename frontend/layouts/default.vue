@@ -1,22 +1,6 @@
 <template>
   <div class="wrapper">
-    <header class="noprint">
-      <ul>
-        <li><nuxt-link to="/">Home</nuxt-link></li>
-        <li><nuxt-link to="/about">About</nuxt-link></li>
-        <template v-if="authenticated">
-          <li><nuxt-link to="/pinreset">Pin Reset</nuxt-link></li>
-          <li><nuxt-link to="/slips">Paging slips</nuxt-link></li>
-          <li><nuxt-link to="/shelf">Shelf clearance</nuxt-link></li>
-          <li class="loginBtn">
-            <nuxt-link @click="logout">Logout</nuxt-link>
-          </li>
-        </template>
-        <li v-if="!authenticated" class="loginBtn">
-          <nuxt-link to="/login">Login</nuxt-link>
-        </li>
-      </ul>
-    </header>
+    <HeaderMenu />
     <main>
       <slot />
     </main>
@@ -57,44 +41,7 @@
     margin: 0;
     font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
-  header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    & ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333;
 
-      & li {
-        float: left;
-        border-right: 1px solid #bbb;
-      }
-
-      & li:last-child {
-        border-right: none;
-      }
-
-      & li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      & li a:hover:not(.loginBtn) {
-        background-color: #111;
-      }
-    }
-    & .loginBtn {
-      background-color: #04aa6d;
-      float: right;
-    }
-  }
   main {
     /* padding: 16px; */
     margin-left: 2rem;
