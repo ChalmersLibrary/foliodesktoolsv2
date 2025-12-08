@@ -33,21 +33,22 @@
   };
 
   onMounted(async () => {
-    let navLinks = document.querySelector(".navlink")
+    let navLinks = document.querySelectorAll(".navlink")
     let x = document.getElementById("myTopnav")
-    navLinks?.addEventListener("click", () => {
-      x.className = "topnav"
-      console.log("Closing");
-      
-    })
+    
+    for (const navlink of navLinks) {
+      navlink.addEventListener("click", () => {
+        x?.classList.remove("responsive")
+      })
+    }
   }) 
 
   function showMenu() {
     let x = document.getElementById("myTopnav")
     if (x?.className === "topnav") {
-      x.className += " responsive"
+      x.classList.add("responsive")
     } else {
-      x.className = "topnav"
+      x?.classList.remove("responsive")
     }
   }
 </script>
