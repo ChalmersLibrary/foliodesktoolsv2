@@ -1,6 +1,6 @@
 <template>
   <div class="noprint" v-if="finishedLoading">
-    <span>Last updated: <span>{{ updateTime }}</span></span><span class="btn-noborder" @click="getSlips()">🔄</span>
+    <span>Last updated: <span>{{ updateTime }}</span></span><span class="btn reload" @click="getSlips()">Uppdatera</span>
   </div>
   <div class="noprint librarylist" v-if="requests.length > 0">
     <span class="btn bottom-margin" :class="{active: lib == selectedLibrary}" v-for="lib in libs" :key="lib" @click="select(lib)">{{lib}}</span>
@@ -142,13 +142,8 @@
     cursor: pointer;
     display: inline-block;
   }
-  .btn-noborder {
-    /* border: 1px solid black; */
-    /* border-radius: 5px; */
-    padding: .2rem;
-    margin: .3rem;
-    cursor: pointer;
-    display: inline-block;
+  .reload {
+    background-color: lime;
   }
   .active {
     background: blue;
