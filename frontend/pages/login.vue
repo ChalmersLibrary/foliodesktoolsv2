@@ -25,6 +25,7 @@
         @keyup.enter="login"
       />
 
+      <div v-if="errorMessage">{{errorMessage}}</div>
       <button @click.prevent="login" class="button">Login</button>
     </div>
   </div>
@@ -35,7 +36,7 @@ import { useAuthStore } from '~/store/auth';
 
 const { authenticateUser } = useAuthStore(); // use auth store
 
-const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive
+const { authenticated, errorMessage } = storeToRefs(useAuthStore()); // make authenticated state reactive
 
 const user = ref({
   username: '',

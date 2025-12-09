@@ -45,11 +45,10 @@ router.post('/session/login', (req,res) => {
       user.exp = expires
       res.status(200).json(user)
     } else {
-      res.status(400).send('Invalid credentials!')
+      res.status(401).send('Invalid credentials!')
     }
   } catch (error) {
-    console.log(error.message);
-        
+    console.log(error.message);        
   }
 })
 
