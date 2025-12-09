@@ -22,52 +22,52 @@
     </div>
     <div class="request avoidPageBreak" v-for="request in filteredRequests" :key="request.id">
       <div>
-        <strong>Location:</strong>
-        <span>{{ request.item.location.name }}</span>
-        <span>{{ request.item.location.libraryName }}</span>
+        <span>Location: </span>
+        <strong>{{ request.item.location.name }}</strong>
+        <!-- <span>{{ request.item.location.libraryName }}</span> -->
       </div>
       <div>
-        <strong>Callnumber:</strong>
-        <span>
+        <span>Callnumber: </span>
+        <strong>
           {{ request.item.callNumber }}
           {{request.item.callNumberComponents.suffix}}
-        </span>
+        </strong>
       </div>
       <div>
         <div class="authors">
-          <strong>Author/s:</strong>
+          <span>Author/s: </span>
           <span
             v-for="author in request.instance.contributorNames"
             v-html="author.name" :key="author.name"
           >
           </span>
         </div>
-        <strong>Title:</strong> <span>{{ request.instance.title }}</span>
+        <strong>Title: </strong> <span>{{ request.instance.title }}</span>
       </div>
       <div v-if="request.instance.editions!=null">
-        <strong>Edition:</strong>
-        <span>{{ request.instance.editions[0] }}</span>
+        <strong>Edition: </strong>
+        <strong>{{ request.instance.editions[0] }}</strong>
       </div>
       <!-- <div>
         {{ request.instance.editions!=null?request.instance.editions[0]:'Null' }}
         <pre>{{ JSON.stringify(request.instance,null,2)}}</pre>
       </div> -->
       <div>
-        <strong>Barcode:</strong>
-        <span>{{ request.item.barcode }}</span>
+        <strong>Barcode: </strong>
+        <strong>{{ request.item.barcode }}</strong>
       </div>
       <div>
-        <strong>Status:</strong>
+        <span>Status: </span>
         <span>{{ request.item.status }}</span>
       </div>
       <div>
-        <strong>ServicePoint:</strong>
+        <span>ServicePoint: </span>
         <span>
           {{ request.pickupServicePoint.name }}
         </span>
       </div>
       <div>
-        <strong>Requester:</strong>
+        <span>Requester: </span>
         <span>
           {{ request.requester.lastName }} {{ request.requester.firstName }} {{ request.requester.middleName }} -- {{ request.requester.patronGroup.group}}
         </span>
