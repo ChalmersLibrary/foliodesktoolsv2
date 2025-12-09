@@ -5,7 +5,9 @@
   <div class="noprint librarylist" v-if="requests.length > 0">
     <span class="btn bottom-margin" :class="{active: lib == selectedLibrary}" v-for="lib in libs" :key="lib" @click="select(lib)">{{lib}}</span>
   </div>
-  <div v-if="finishedLoading && selectedLibrary">
+  <!-- <div v-else><img src="/assets/1481.gif" alt=""></div> -->
+  <!-- <div v-if="finishedLoading && selectedLibrary"> -->
+  <div v-if="finishedLoading">
     <div class="noprint bottom-margin">
       <span class="btn" @click="print()">Print</span>
       <label for="separatePages">
@@ -77,6 +79,7 @@
       <div v-if="separatePages" class="pagebreak"></div>
     </div>
   </div>
+  <div v-else><img src="/assets/1481.gif" alt=""></div>
   <!-- <div v-else-if="!selectedLibrary && updated && requests && requests.length>0">Select a library above.</div>
   <div v-else-if="updated">Nothing paged</div> -->
   <PageHelp class="noprint" />
@@ -110,9 +113,10 @@
     updated.value = Date.now()
     finishedLoading.value = false
     requests.value=[]
-    const { data: slips } = await useFetch('/api/getPagingSlips', {server: false})
+    // const { data: slips } = await useFetch('/api/getPagingSlips', {server: false})
+    const slips = await $fetch('/api/getPagingSlips')
 
-    requests.value = slips.value.filter(request => {
+    requests.value = slips.filter(request => {
       if (request.item !== undefined && request.item.status !== 'Missing') {
         return request
       }

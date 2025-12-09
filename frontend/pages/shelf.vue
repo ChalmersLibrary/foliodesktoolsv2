@@ -10,6 +10,9 @@
       </span>
       <ShelfClearceList class="avoidPageBreak" :shelfList="shelfList" />
     </div>
+    <div v-if="!finishedLoading && selectedLibrary">
+      <img src="/assets/1481.gif" alt="">
+    </div>
     <ShelfHelp class="noprint" />
   </div>
 </template>
@@ -46,11 +49,11 @@
     finishedLoading.value = false
     updated.value = new Date()
     // shelfList.value = null
-    const { data: shelfListResponse} = await useFetch(`/api/getShelfList/${selectedLibrary.value}`, {server: false})
-    shelfList.value = shelfListResponse.value.requests
-    shelfTotal.value = shelfListResponse.value.totalRecords
+    // const { data: shelfListResponse} = await useFetch(`/api/getShelfList/${selectedLibrary.value}`, {server: false})
+    const shelfListResponse:any = await $fetch(`/api/getShelfList/${selectedLibrary.value}`)
+    shelfList.value = shelfListResponse.requests
+    shelfTotal.value = shelfListResponse.totalRecords
     finishedLoading.value = true
-
   }
 </script>
 
