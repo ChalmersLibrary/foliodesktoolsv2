@@ -1,6 +1,14 @@
 <template>
   <div>
     <h3>Nyheter i diskappen</h3>
+    <h4>9 dec 2025</h4>
+    <div>
+      <ul>
+        <li>Felmeddelande när man skrivit in fel användarnamn</li>
+        <li>Spinner när den laddar saker</li>
+        <li>Cachar mindre</li>
+      </ul>
+    </div>
     <h4>24 nov 2025</h4>
     <div>
       <ul>
