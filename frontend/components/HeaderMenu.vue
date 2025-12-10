@@ -37,9 +37,10 @@
     let x = document.getElementById("myTopnav")
     
     for (const navlink of navLinks) {
-      navlink.addEventListener("click", () => {
-        x?.classList.remove("responsive")
-      })
+      ['click', 'touchstart'].forEach( evt => 
+        navlink.addEventListener(evt, () => {
+          x?.classList.remove("responsive")
+      }))
     }
   }) 
 
