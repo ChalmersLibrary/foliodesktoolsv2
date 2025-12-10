@@ -45,8 +45,8 @@
         <strong>Title: </strong> <span>{{ request.instance.title }}</span>
       </div>
       <div v-if="request.instance.editions!=null">
-        <strong>Edition: </strong>
-        <strong>{{ request.instance.editions[0] }}</strong>
+        <span>Edition: </span>
+        <span>{{ request.instance.editions[0] }}</span>
       </div>
       <!-- <div>
         {{ request.instance.editions!=null?request.instance.editions[0]:'Null' }}
@@ -59,9 +59,10 @@
       <div>
         <span>Status: </span>
         <span>{{ request.item.status }}</span>
+        <!-- Feta om item staus är in process -->
       </div>
       <div>
-        <span>ServicePoint: </span>
+        <span>Pickup ServicePoint: </span>
         <span>
           {{ request.pickupServicePoint.name }}
         </span>
@@ -69,7 +70,8 @@
       <div>
         <span>Requester: </span>
         <span>
-          {{ request.requester.lastName }} {{ request.requester.firstName }} {{ request.requester.middleName }} -- {{ request.requester.patronGroup.group}}
+          {{ request.requester.lastName }} {{ request.requester.firstName }} {{ request.requester.middleName }}
+          <!-- -- {{ request.requester.patronGroup.group}} -->
         </span>
       </div>
       <div v-if="request.item.location.libraryName == 'Bibliotekssystem'">

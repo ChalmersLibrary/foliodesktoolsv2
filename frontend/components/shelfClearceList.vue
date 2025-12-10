@@ -2,15 +2,17 @@
   <!-- <div>{{ shelfList.length }}</div> -->
   <div v-if="shelfList.length > 0">
     <div class="shelfList avoidPageBreak" v-for="request in shelfList" key="request.id">
-      <strong>Patron name:</strong>
-      {{ request.requester.firstName }}<br />
-      <strong>Title:</strong> {{ request.instance.title }} ({{
-      request.item.barcode }})<br />
-      <strong>Exemplar kod:</strong> {{ request.item.barcode }}<br />
-      <strong>CallNumber:</strong> {{ request.item.callNumber }}
-      {{request.item.callNumberComponents.suffix}}<br />
-      <strong>Request status:</strong> {{ request.status }} <br />
-      <strong>HoldshelfExpiration: </strong>
+      <!-- Sortera på namn -->
+      <span>Patron name: </span>
+      <strong>{{ request.requester.firstName }}</strong><br />
+      <span>Title:</span> {{ request.instance.title }}
+       <!-- ({{request.item.barcode }}) -->
+       <br />
+      <span>Barcode: </span> {{ request.item.barcode }}<br />
+      <!-- <strong>CallNumber:</strong> {{ request.item.callNumber }}
+      {{request.item.callNumberComponents.suffix}}<br /> -->
+      <span>Request status: </span> {{ request.status }} <br />
+      <span>HoldshelfExpiration: </span>
       <span v-if="request.holdShelfExpirationDate != undefined">{{ request.holdShelfExpirationDate.substring(0, 10) }}</span>
       <span v-else>-</span>
       <br />
