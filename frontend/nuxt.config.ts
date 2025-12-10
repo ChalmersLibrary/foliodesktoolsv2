@@ -12,5 +12,14 @@ export default defineNuxtConfig({
         changeOrigin: true
       }
     }
+  },
+  app: {
+    head: {
+      title: "FOLIO Desk Tools",
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/assets/foliobee.png' },
+        { rel: 'manifest', href: '/manifest.json'},
+      ]
+    }
   }
 })

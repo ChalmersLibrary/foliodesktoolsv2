@@ -1,0 +1,15 @@
+{
+  "short_name": "FDT",
+  "name": "FOLIO Desk Tools",
+  "icons": [
+    {
+      "src": "/assets/foliobee.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "black",
+  "background_color": "white"
+}
