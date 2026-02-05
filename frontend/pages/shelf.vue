@@ -5,7 +5,7 @@
     </div>
     <div v-if="finishedLoading">
       <span class="noprint">
-        <span class="btn reload" @click="getShelfList()">Uppdatera</span> <span>Last updated: {{ updated.toLocaleTimeString("sv-SE") }}</span>
+        <span class="btn reload" @click="getShelfList()"> Update </span> <span>Last updated: {{ updated.toLocaleTimeString("sv-SE") }}</span>
       </span>
       <ShelfClearceList class="avoidPageBreak" :shelfList="shelfList" />
     </div>
@@ -51,10 +51,11 @@
     display: inline-block;
   }
   .reload {
-    background-color: lime;
+    background-color: #04aa6d;
+    color: white;
   }
   .active {
-    background: blue;
+    background: #364497;
     color: white;
   }
 </style>

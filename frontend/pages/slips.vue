@@ -1,6 +1,6 @@
 <template>
   <div class="noprint" v-if="finishedLoading">
-    <span>Last updated: <span>{{ updateTime }}</span></span><span class="btn reload" @click="getSlips()">Uppdatera</span>
+    <span>Last updated: <span>{{ updateTime }}</span></span><span class="btn reload" @click="getSlips()">Update</span>
   </div>
   <div class="noprint librarylist" v-if="requests.length > 0">
     <span class="btn bottom-margin" :class="{active: lib == selectedLibrary}" v-for="lib in libs" :key="lib" @click="select(lib)">{{lib}}</span>
@@ -20,6 +20,8 @@
         Separate Pages
       </label>
     </div>
+    <div>Number of requested items: {{ filteredRequests.length }}</div>
+    <p></p>
     <div class="request avoidPageBreak" v-for="request in filteredRequests" :key="request.id">
       <div>
         <span>Location: </span>
@@ -34,15 +36,17 @@
         </strong>
       </div>
       <div>
+        <span>Title: </span> <span>{{ request.instance.title }}</span>
+      </div>
+      <div>
         <div class="authors">
-          <span>Author/s: </span>
+          <span>Author: </span>
           <span
             v-for="author in request.instance.contributorNames"
             v-html="author.name" :key="author.name"
           >
           </span>
         </div>
-        <strong>Title: </strong> <span>{{ request.instance.title }}</span>
       </div>
       <div v-if="request.instance.editions!=null">
         <span>Edition: </span>
@@ -53,7 +57,7 @@
         <pre>{{ JSON.stringify(request.instance,null,2)}}</pre>
       </div> -->
       <div>
-        <strong>Barcode: </strong>
+        <span>Barcode: </span>
         <strong>{{ request.item.barcode }}</strong>
       </div>
       <div>
@@ -62,7 +66,7 @@
         <!-- Feta om item staus är in process -->
       </div>
       <div>
-        <span>Pickup ServicePoint: </span>
+        <span>Pickup at: </span>
         <span>
           {{ request.pickupServicePoint.name }}
         </span>
@@ -145,10 +149,11 @@
     display: inline-block;
   }
   .reload {
-    background-color: lime;
+    background-color: #04aa6d;
+    color: white;
   }
   .active {
-    background: blue;
+    background: #364497;
     color: white;
   }
   .librarylist {

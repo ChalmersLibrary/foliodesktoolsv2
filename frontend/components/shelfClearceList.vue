@@ -1,6 +1,7 @@
 <template>
   <!-- <div>{{ shelfList.length }}</div> -->
   <div v-if="shelfList.length > 0">
+    <p>{{ shelfList.length }} books to clear from shelf.</p>
     <div class="shelfList avoidPageBreak" v-for="request in shelfList" key="request.id">
       <!-- Sortera på namn -->
       <span>Patron name: </span>

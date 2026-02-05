@@ -95,11 +95,11 @@ router.post('/user/changepin', verifyToken, async (req,res) => {
 })
 
 router.get('/getPagingSlips', verifyToken, async (req,res) => {
-  console.log('Fetching slips');
+  // console.log('Fetching slips');
   
   try {
     let slips = await folio.getPagingSlips();
-    console.log(slips.length);
+    // console.log(slips.length);
     
     res.json(slips)
   } catch (error) {

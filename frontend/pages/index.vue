@@ -1,6 +1,6 @@
 <template>
   <h1>FOLIO Diskapp</h1>
-  <News />
+  <MainInfo />
 </template>
 
 <script lang="ts" setup>
