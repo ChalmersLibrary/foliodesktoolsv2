@@ -1,6 +1,12 @@
 <template>
   <div>
     <h3>Nyheter i diskappen</h3>
+    <h4>6 feb 2026</h4>
+    <div>
+      <ul>
+        <li>Nu sunfloweranpassad</li>
+      </ul>
+    </div>
     <h4>9 dec 2025</h4>
     <div>
       <ul>
