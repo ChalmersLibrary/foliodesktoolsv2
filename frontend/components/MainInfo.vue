@@ -8,7 +8,7 @@
     <h3>Lägg diskappen som en app på din dator - Microsoft Edge och Chrome</h3>
     <p>I URL-fältet finns en ikon. Klicka på den så installeras appen och du kan lägga den i verktygsfältet på datorn.</p>
     <p>Edge-ikonen visas nedan, i Chrome liknar den en dator med pil nedåt.</p>
-    <img src="/img/install-web-app-icon-edge.png">
+    <img src="/img/Install-web-app-icon-edge.png">
     <h3>Att använda diskappen på mobilen</h3>
     <p>Sök upp https://foliodiskapp.lib.chalmers.se/<br>
     Lägg gärna länken på startskärmen. <br>
