@@ -11,6 +11,9 @@ export default defineNuxtConfig({
         target: 'http://localhost:8080/api',
         changeOrigin: true
       }
+    },
+    output: {
+      publicDir: '../public'
     }
   },
   app: {
