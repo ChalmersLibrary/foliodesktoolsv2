@@ -5,6 +5,7 @@
     </div>
     <div v-if="finishedLoading">
       <span class="noprint">
+        <span class="btn" @click="print()">Print</span>
         <span class="btn reload" @click="getShelfList()"> Update </span> <span>Last updated: {{ updated.toLocaleTimeString("sv-SE") }}</span>
       </span>
       <ShelfClearceList class="avoidPageBreak" :shelfList="shelfList" />
@@ -30,6 +31,11 @@
     selectedLibrary.value = id
     getShelfList()
   }
+
+  const print = () => {
+    window.print()
+  }
+  
 
   const getShelfList = async () => {
     finishedLoading.value = false
