@@ -55,6 +55,11 @@
 </script>
 
 <style lang="css">
+  .router-link-active{
+    color: black !important;
+    background-color: #ddd;
+  }
+
   .topnav {
     background-color: #333;
     overflow: hidden;
