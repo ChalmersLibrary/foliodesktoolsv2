@@ -8,7 +8,7 @@
     "start": "node server/app.js",
     "build": "npm run generate -w frontend",
     "dev": "concurrently \"npm:dev-*\"",
-    "dev-backend": "PORT=8080 nodemon server/app.js",
+    "dev-backend": "PORT=8080 node_env=development nodemon server/app.js",
     "dev-frontend": "npm run dev -w frontend"
   },
   "author": "",

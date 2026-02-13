@@ -54,6 +54,11 @@
     flex-shrink: 0;
   }
   @media print {
+    main {
+      margin-left: 5mm;
+      margin-top: 5mm;
+      /* border: 1px solid transparent; */
+    }
     .noprint {
       display: none;
     }
