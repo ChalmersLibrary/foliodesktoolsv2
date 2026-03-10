@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser'
 
 const app = express()
 const PORT = process.env.PORT || 3000
-const devel = process.env.node_env == 'development'
+const devel = process.env.NODE_ENV == 'development'
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
