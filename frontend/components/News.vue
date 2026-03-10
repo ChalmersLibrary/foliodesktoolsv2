@@ -1,6 +1,16 @@
 <template>
   <div>
     <h3>Nyheter i diskappen</h3>
+    <h4>10 mars 2026</h4>
+    <div>
+      <ul>
+        <li>Menyn stänger sig när man gjort ett val</li>
+        <li>Går att logga ut om den "hängt" sig.</li>
+      </ul>
+      <p>
+        Om appen har "hängt sig" på första sidan så kan man nu via menyn logga ut och logga in igen så skall den ha resettats. 
+      </p>
+    </div>
     <h4>6 feb 2026</h4>
     <div>
       <ul>
