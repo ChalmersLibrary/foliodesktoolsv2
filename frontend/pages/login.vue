@@ -8,6 +8,8 @@
       <input
         v-model="user.username"
         type="text"
+        autocapitalize="none"
+        autocomplete="username"
         class="input"
         placeholder="Enter Username"
         name="uname"
