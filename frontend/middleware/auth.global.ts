@@ -1,19 +1,45 @@
 import { storeToRefs } from 'pinia';
 import { useAuthStore } from '~/store/auth';
 
+// Safari-safe base64url decode (handles missing padding and URL-safe chars)
+function decodeBase64Url(str: string): string {
+  let base64 = str.replace(/-/g, '+').replace(/_/g, '/');
+  const pad = base64.length % 4;
+  if (pad) {
+    base64 += '='.repeat(4 - pad);
+  }
+  return decodeURIComponent(
+    atob(base64)
+      .split('')
+      .map((c) => '%' + c.charCodeAt(0).toString(16).padStart(2, '0'))
+      .join('')
+  );
+}
+
+function isTokenExpired(token: string): boolean {
+  try {
+    const payload = token.split('.')[1];
+    if (!payload) return true;
+    const { exp } = JSON.parse(decodeBase64Url(payload));
+    if (!exp) return true;
+    return Date.now() >= exp * 1000;
+  } catch {
+    return true;
+  }
+}
+
 export default defineNuxtRouteMiddleware((to) => {
   const { authenticated } = storeToRefs(useAuthStore()); // make authenticated state reactive
   const token = useCookie('token'); // get token from cookies
 
-  if (token.value) {
-    // check if value exists
-    // todo verify if token is valid, before updating the state
-    authenticated.value = true; // update the state to authenticated
+  // Clear expired tokens
+  if (token.value && isTokenExpired(token.value)) {
+    token.value = null;
+    authenticated.value = false;
   }
 
-  // if token exists and url is /login redirect to homepage
-  if (token.value && to?.name === 'login') {
-    return navigateTo('/');
+  if (token.value) {
+    authenticated.value = true;
   }
 
   // if token doesn't exist redirect to log in
