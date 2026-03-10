@@ -34,6 +34,9 @@ export const useAuthStore = defineStore('auth', {
       this.username = null;
       token.value = null; // clear the token cookie
       this.errorMessage = '';
+      if (import.meta.client) {
+        localStorage.removeItem('lastRoute');
+      }
     },
   },
 });

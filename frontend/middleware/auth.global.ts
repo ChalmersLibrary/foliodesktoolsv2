@@ -42,9 +42,20 @@ export default defineNuxtRouteMiddleware((to) => {
     authenticated.value = true;
   }
 
+  // if token exists and url is /login redirect to homepage
+  if (token.value && to?.name === 'login') {
+    const lastRoute = import.meta.client ? localStorage.getItem('lastRoute') : null;
+    return navigateTo(lastRoute || '/');
+  }
+  
   // if token doesn't exist redirect to log in
   if (!token.value && to?.name !== 'login') {
     abortNavigation();
     return navigateTo('/login');
+  }
+
+  // Save last visited route for authenticated users (restore after PWA restart)
+  if (import.meta.client && token.value && to?.name !== 'index') {
+    localStorage.setItem('lastRoute', to.fullPath);
   }
 });
