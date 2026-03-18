@@ -4,6 +4,8 @@
       <h2>Login</h2>
     </div>
     <div class="container form">
+      <button @click.prevent="samlLogin" class="button sso-button">Login with SSO</button>
+      <div class="sso-divider">or</div>
       <label for="uname"><b>Username</b></label>
       <input
         v-model="user.username"
@@ -29,8 +31,6 @@
 
       <div v-if="errorMessage">{{errorMessage}}</div>
       <button @click.prevent="login" class="button">Login</button>
-      <div class="sso-divider">or</div>
-      <button @click.prevent="samlLogin" class="button sso-button">Login with SSO</button>
     </div>
   </div>
 </template>
