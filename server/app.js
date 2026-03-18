@@ -1,5 +1,6 @@
 import express from 'express'
 import api from './routes/api.js'
+import saml from './routes/saml.js'
 import cookieParser from 'cookie-parser'
 
 const app = express()
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/api', api)
+app.use('/api/saml', saml)
 app.use(express.static('public'))
 
 app.listen(PORT, () => {

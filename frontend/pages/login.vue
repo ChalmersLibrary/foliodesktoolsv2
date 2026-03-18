@@ -29,6 +29,8 @@
 
       <div v-if="errorMessage">{{errorMessage}}</div>
       <button @click.prevent="login" class="button">Login</button>
+      <div class="sso-divider">or</div>
+      <button @click.prevent="samlLogin" class="button sso-button">Login with SSO</button>
     </div>
   </div>
 </template>
@@ -52,6 +54,10 @@ const login = async () => {
   if (authenticated) {
     router.push('/');
   }
+};
+
+const samlLogin = () => {
+  window.location.href = '/api/saml/login'
 };
 </script>
 <style>
@@ -84,6 +90,17 @@ const login = async () => {
 
   & .button:hover {
     opacity: 0.8;
+  }
+
+  & .sso-divider {
+    text-align: center;
+    margin: 8px 0;
+    color: #888;
+  }
+
+  & .sso-button {
+    background-color: #1a73e8;
+    width: 100%;
   }
   & .cancelbtn {
     width: auto;
