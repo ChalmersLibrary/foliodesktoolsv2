@@ -1,6 +1,13 @@
 <template>
   <div>
     <h3>Nyheter i diskappen</h3>
+    <h4>18 mars</h4>
+    <div>
+      <ul>
+        <li>Nu med SSO inloggning</li>
+        <li>Inget krav på vpn längre</li>
+      </ul>
+    </div>
     <h4>10 mars 2026</h4>
     <div>
       <ul>
