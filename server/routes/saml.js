@@ -2,10 +2,14 @@ import 'dotenv/config'
 import express from 'express'
 import jwt from 'jsonwebtoken'
 import saml2 from 'saml2-js'
+import FolioCommunicator from '../folio/foliocommunicator.js'
 
 const router = express.Router()
 
 const jwtSecret = process.env.JWTSECRET
+const staffGuid = process.env.STAFFGUID
+
+const folio = new FolioCommunicator(process.env.OKAPIURL, process.env.OKAPITENANT, process.env.OKAPIUSER, process.env.OKAPIPWD)
 
 function formatPEM(base64, type) {
   const lines = base64.replace(/\s/g, '').match(/.{1,64}/g).join('\n')
@@ -84,17 +88,31 @@ router.get('/login', async (req, res) => {
 router.post('/callback', async (req, res) => {
   try {
     const currentIdp = await getIdp()
-    sp.post_assert(currentIdp, { request_body: req.body }, (err, samlResponse) => {
+    sp.post_assert(currentIdp, { request_body: req.body }, async (err, samlResponse) => {
       if (err) {
         console.error('SAML assertion error:', err)
         return res.status(403).send('SAML authentication failed')
       }
 
-      const attrs = samlResponse.user.attributes || {}
-      const username = attrs.uid?.[0] || attrs.username?.[0] || samlResponse.user.name_id
+      const externalSystemId = samlResponse.user.attributes.username
+
+      let folioUser
+      try {
+        folioUser = await folio.getUserByExternalSystemId(externalSystemId)
+      } catch (folioErr) {
+        console.error('FOLIO user lookup error:', folioErr)
+        return res.status(500).send('User lookup failed')
+      }
+      if (!folioUser) {
+        return res.status(403).send('No matching FOLIO user found')
+      }
+      
+      if (folioUser.patronGroup !== staffGuid) {
+        return res.status(403).send('Access denied: insufficient privileges')
+      }
 
       const expires = Math.floor(Date.now() / 1000) + (4 * 60 * 60)
-      const user = { username }
+      const user = { username: folioUser.username }
       const token = jwt.sign({ user, exp: expires }, jwtSecret)
 
       res.cookie('token', token, { expires: new Date(expires * 1000) })

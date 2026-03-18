@@ -86,6 +86,22 @@ class FolioCommunicator {
     return res;
   }
 
+  async getUserByExternalSystemId(externalSystemId) {
+    await this._checkSession()
+
+    let path = "/users?limit=1&query=";
+    let query = '(externalSystemId="' + externalSystemId + '")';
+
+    let data = await this.session.folioFetch(path + query);
+
+    let res = null;
+    if (data.totalRecords > 0) {
+      res = data.users[0];
+    }
+
+    return res;
+  }
+
   async updatePassword(username, password) {
     try {
       let user = await this.getUser(username);
