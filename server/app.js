@@ -17,7 +17,7 @@ app.use((req, res, next) => {
     if(devel) console.log(`${req.ip} ${req.originalUrl}`);
     next()
   } else {
-    res.status(403).sendFile(`/app/public/403.html`)
+    res.status(403).send(`This page is only viewable from Chalmers network.`)
   }
 })
 
