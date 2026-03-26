@@ -2,7 +2,7 @@
   <!-- <div>{{ shelfList.length }}</div> -->
   <div v-if="shelfList.length > 0">
     <p>{{ shelfList.length }} <span v-if="shelfList.length == 1">book</span><else v-else>books</else> to clear from shelf.</p>
-    <div class="shelfList avoidPageBreak" v-for="request in shelfList" key="request.id">
+    <div class="shelfList avoidPageBreak" v-for="request in sortedShelfList" key="request.id">
       <!-- Sortera på namn -->
       <span>Patron name: </span>
       <strong>{{ request.requester.firstName }}</strong><br />
@@ -29,6 +29,11 @@
     }
   })
   const { shelfList } = props
+  const sortedShelfList = shelfList.sort((a,b) => {
+    a = a.requester.firstName.toLowerCase()
+    b = b.requester.firstName.toLowerCase()
+    return a < b ? -1 : a > b ? 1 : 0
+  })
 </script>
 
 <style scoped>
