@@ -1,6 +1,14 @@
 <template>
   <div>
     <h3>Nyheter i diskappen</h3>
+    <h4>15 juni</h4>
+    <div>
+      <ul>
+        <li>Nästan allt på svenska</li>
+        <li>Länk till admingränssnittet i account.lib.</li>
+        <li>Visar nu genererat id-nummer fån middlenamefältet</li>
+      </ul>
+    </div>
     <h4>18 mars</h4>
     <div>
       <ul>
