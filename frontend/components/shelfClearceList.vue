@@ -1,19 +1,19 @@
 <template>
   <!-- <div>{{ shelfList.length }}</div> -->
   <div v-if="shelfList.length > 0">
-    <p>{{ shelfList.length }} <span v-if="shelfList.length == 1">book</span><else v-else>books</else> to clear from shelf.</p>
+    <p>{{ shelfList.length }} <span v-if="shelfList.length == 1">bok</span><else v-else>böcker</else> att rensa från reservationshyllan.</p>
     <div class="shelfList avoidPageBreak" v-for="request in sortedShelfList" key="request.id">
       <!-- Sortera på namn -->
-      <span>Patron name: </span>
-      <strong>{{ request.requester.firstName }}</strong><br />
-      <span>Title:</span> {{ request.instance.title }}
+      <span>Reservationsnummer: </span>
+      <strong>{{ request.requester.firstName }} {{ request.requester.middleName }}</strong><br />
+      <span>Titel:</span> {{ request.instance.title }}
        <!-- ({{request.item.barcode }}) -->
        <br />
       <span>Barcode: </span> {{ request.item.barcode }}<br />
       <!-- <strong>CallNumber:</strong> {{ request.item.callNumber }}
       {{request.item.callNumberComponents.suffix}}<br /> -->
       <span>Request status: </span> {{ request.status }} <br />
-      <span>HoldshelfExpiration: </span>
+      <span>Hold shelf expiration: </span>
       <span v-if="request.holdShelfExpirationDate != undefined">{{ request.holdShelfExpirationDate.substring(0, 10) }}</span>
       <span v-else>-</span>
       <br />

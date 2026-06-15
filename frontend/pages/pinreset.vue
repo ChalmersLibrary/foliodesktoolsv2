@@ -1,34 +1,34 @@
 <template>
   <div class="user">
-    <h2>PIN code reset</h2>
-    <label for="barcode">Barcode</label>
+    <h2>Återställ PIN-kod</h2>
+    <label for="barcode">Username / Barcode</label>
     <input type="text" autocomplete="off" autofocus v-model="barcode" v-on:keyup.enter="getUser">
-    <button @click="getUser">Fetch</button>
+    <button @click="getUser">Hämta</button>
     <div v-if="user">
-      <div>Name: {{user.personal.lastName}} {{user.personal.firstName}} {{user.personal.middleName}}</div>
+      <div>Namn: {{user.personal.lastName}} {{user.personal.firstName}} {{user.personal.middleName}}</div>
       <div>Username: {{user.username}}</div>
       <div>Barcode: {{user.barcode}}</div>
       <div>Active: {{user.active}}</div>
       <div>Email: {{user.personal.email}}</div>
       <div>External system id: {{user.externalSystemId}}</div>
       <div v-if="user.pwdReset && user.active">
-        <label for="pin1">Pin</label>
+        <label for="pin1">PIN-kod</label>
         <input v-model="pin1" type="password" autocomplete="off">
         <br>
-        <label for="pin2">Pin again</label>
+        <label for="pin2">PIN-kod igen</label>
         <input v-model="pin2" type="password" autocomplete="off" v-on:keyup.enter="changePin">
         <!-- <div v-if="pinOk">Match</div> -->
-        <button v-if="pinOk" @click="changePin">Change pin</button>
-        <div v-else>Enter matching pin codes with 6 digits.</div>
+        <button v-if="pinOk" @click="changePin">Byt PIN-kod</button>
+        <div v-else>Sex siffror.</div>
       </div>
       <br>
       <div v-if="pinMessageOk" class="pinMessageOk">{{pinMessageOk}}</div>
       <div v-if="pinMessage" class="pinMessage">{{pinMessage}}</div>
       <br>
-      <button ref="clear" @click="clear">Clear</button>
+      <button ref="clear" @click="clear">Rensa</button>
     </div>
     <div v-else-if="searched" class="pinMessage">
-      User not found.
+      Användaren hittas inte.
     </div>
     <PinHelp />
   </div>

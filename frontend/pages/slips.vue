@@ -1,6 +1,6 @@
 <template>
   <div class="noprint" v-if="finishedLoading">
-    <span>Last updated: <span>{{ updateTime }}</span></span><span class="btn reload" @click="getSlips()">Update</span>
+    <span>Senast uppdaterad: <span>{{ updateTime }}</span></span><span class="btn reload" @click="getSlips()">Uppdatera</span>
   </div>
   <div class="noprint librarylist" v-if="requests.length > 0">
     <span class="btn bottom-margin" :class="{active: lib == selectedLibrary}" v-for="lib in libs" :key="lib" @click="select(lib)">{{lib}}</span>
@@ -9,8 +9,8 @@
   <!-- <div v-if="finishedLoading && selectedLibrary"> -->
   <div v-if="finishedLoading">
     <div class="noprint bottom-margin">
-      <span class="btn" @click="print()">Print</span>
-      <label for="separatePages">
+      <span class="btn" @click="print()">Skriv ut</span>
+      <!-- <label for="separatePages">
         <input
           type="checkbox"
           name="separatePages"
@@ -18,9 +18,9 @@
           v-model="separatePages"
         />
         Separate Pages
-      </label>
+      </label> -->
     </div>
-    <div>Number of requested items: {{ filteredRequests.length }}</div>
+    <div>Antal reservationer: {{ filteredRequests.length }}</div>
     <p></p>
     <div class="request avoidPageBreak" v-for="request in filteredRequests" :key="request.id">
       <div>
@@ -74,7 +74,7 @@
       <div>
         <span>Requester: </span>
         <span>
-          {{ request.requester.lastName }} {{ request.requester.firstName }} {{ request.requester.middleName }}
+          <!-- {{ request.requester.lastName }} {{ request.requester.firstName }} --> {{ request.requester.middleName }}
           <!-- -- {{ request.requester.patronGroup.group}} -->
         </span>
       </div>

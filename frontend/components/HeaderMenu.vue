@@ -1,14 +1,15 @@
 <template>
   <header class="noprint">
     <div class="topnav" :class="{ responsive: menuOpen }">
-      <nuxt-link class="navlink" to="/">Home</nuxt-link>
-      <nuxt-link class="navlink" v-if="authenticated" to="/about">About</nuxt-link>
-      <nuxt-link class="navlink" v-if="authenticated" to="/pinreset">Pin Reset</nuxt-link>
-      <nuxt-link class="navlink" v-if="authenticated" to="/slips">Paging slips</nuxt-link>
-      <nuxt-link class="navlink" v-if="authenticated" to="/shelf">Shelf clearance</nuxt-link>
+      <nuxt-link class="navlink" to="/">Hem</nuxt-link>
+      <nuxt-link class="navlink" v-if="authenticated" to="/pinreset">PIN-kod</nuxt-link>
+      <nuxt-link class="navlink" v-if="authenticated" to="/slips">Framplockning</nuxt-link>
+      <nuxt-link class="navlink" v-if="authenticated" to="/shelf">Rensa reservationshyllan</nuxt-link>
+      <nuxt-link class="navlink" v-if="authenticated" to="https://account.lib.chalmers.se/admin/" target="_blank">Skapa konto</nuxt-link>
+      <nuxt-link class="navlink" v-if="authenticated" to="/about">Om</nuxt-link>
 
-      <nuxt-link v-if="!authenticated" class="navlink loginBtn floatRight" to="/login">Login</nuxt-link>
-      <nuxt-link v-else class="navlink loginBtn floatRight" @click="logout">Logout</nuxt-link>
+      <nuxt-link v-if="!authenticated" class="navlink loginBtn floatRight" to="/login">Logga in</nuxt-link>
+      <nuxt-link v-else class="navlink loginBtn floatRight" @click="logout">Logga ut</nuxt-link>
       <a id="toggleLink" @click="menuOpen = !menuOpen">
         <svg id="burger" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4ZM7 12C7 11.4477 7.44772 11 8 11H20C20.5523 11 21 11.4477 21 12C21 12.5523 20.5523 13 20 13H8C7.44772 13 7 12.5523 7 12ZM13 18C13 17.4477 13.4477 17 14 17H20C20.5523 17 21 17.4477 21 18C21 18.5523 20.5523 19 20 19H14C13.4477 19 13 18.5523 13 18Z" fill="#000000"/>

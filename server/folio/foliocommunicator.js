@@ -64,6 +64,8 @@ class FolioCommunicator {
     await this._checkSession()
     try {
       let response = await this.session.folioFetch(`/circulation/requests-reports/hold-shelf-clearance/${id}`)
+      console.log(JSON.stringify(response,0,2));
+      
       return response
     } catch (error) {
       console.error(error.message);
