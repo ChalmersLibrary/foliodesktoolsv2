@@ -5,32 +5,34 @@
     </div>
     <div class="container form">
       <button @click.prevent="samlLogin" class="button sso-button">Logga in med SSO</button>
-      <div class="sso-divider">eller</div>
-      <label for="uname"><b>Användarnamn</b></label>
-      <input
-        v-model="user.username"
-        type="text"
-        autocapitalize="none"
-        autocomplete="username"
-        class="input"
-        placeholder="Ange användarnamn"
-        name="uname"
-        required
-      />
-
-      <label for="psw"><b>Lösenord</b></label>
-      <input
-        v-model="user.password"
-        type="password"
-        class="input"
-        placeholder="Ange lösenord"
-        name="psw"
-        required
-        @keyup.enter="login"
-      />
-
-      <div v-if="errorMessage">{{errorMessage}}</div>
-      <button @click.prevent="login" class="button">Logga in</button>
+      <details class="sso-divider">
+        <summary>Lokal inloggning</summary>
+        <label for="uname"><b>Användarnamn</b></label>
+        <input
+          v-model="user.username"
+          type="text"
+          autocapitalize="none"
+          autocomplete="username"
+          class="input"
+          placeholder="Ange användarnamn"
+          name="uname"
+          required
+        />
+  
+        <label for="psw"><b>Lösenord</b></label>
+        <input
+          v-model="user.password"
+          type="password"
+          class="input"
+          placeholder="Ange lösenord"
+          name="psw"
+          required
+          @keyup.enter="login"
+        />
+  
+        <div v-if="errorMessage">{{errorMessage}}</div>
+        <button @click.prevent="login" class="button">Logga in</button>
+      </details>
     </div>
   </div>
 </template>

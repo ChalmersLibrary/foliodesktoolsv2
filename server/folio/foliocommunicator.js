@@ -64,7 +64,17 @@ class FolioCommunicator {
     await this._checkSession()
     try {
       let response = await this.session.folioFetch(`/circulation/requests-reports/hold-shelf-clearance/${id}`)
-      console.log(JSON.stringify(response,0,2));
+      // response.requests.forEach(async (request, index) => {
+      //   let user = await this.getUserWithBarcode(request.requester.barcode)
+      //   console.log(index, JSON.stringify(user.personal.middleName,0,2));
+      //   response.requests[index].requester.middleName=user.personal.middleName;
+      // });
+
+      for (let index = 0; index < response.requests.length; index++) {
+        let request = response.requests[index];
+        let user = await this.getUserWithBarcode(request.requester.barcode)
+        response.requests[index].requester.middleName=user.personal.middleName;        
+      }
       
       return response
     } catch (error) {
