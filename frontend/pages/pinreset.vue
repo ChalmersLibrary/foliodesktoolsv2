@@ -5,7 +5,8 @@
     <input type="text" autocomplete="off" autofocus v-model="barcode" v-on:keyup.enter="getUser">
     <button @click="getUser">Hämta</button>
     <div v-if="user">
-      <div>Namn: {{user.personal.lastName}} {{user.personal.firstName}} {{user.personal.middleName}}</div>
+      <div>Namn: {{user.personal.lastName}} {{user.personal.firstName}}</div>
+      <div>Reservationsnummer: {{user.personal.middleName}}</div>
       <div>Username: {{user.username}}</div>
       <div>Barcode: {{user.barcode}}</div>
       <div>Active: {{user.active}}</div>
