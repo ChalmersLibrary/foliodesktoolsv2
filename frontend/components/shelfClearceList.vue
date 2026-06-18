@@ -30,8 +30,8 @@
   })
   const { shelfList } = props
   const sortedShelfList = shelfList.sort((a,b) => {
-    a = a.requester.firstName.toLowerCase()
-    b = b.requester.firstName.toLowerCase()
+    a = a.requester.middleName.toLowerCase()
+    b = b.requester.middleName.toLowerCase()
     return a < b ? -1 : a > b ? 1 : 0
   })
 </script>
