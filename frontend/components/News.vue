@@ -1,6 +1,12 @@
 <template>
   <div>
     <h3>Nyheter i diskappen</h3>
+    <h4>18 juni</h4>
+    <div>
+      <ul>
+        <li>Sorterar bortplockning från reservationshyllan efter reservationsnummer.</li>
+      </ul>
+    </div>
     <h4>15 juni</h4>
     <div>
       <ul>
