@@ -6,7 +6,7 @@
       <ul>
         <li>Nästan allt på svenska</li>
         <li>Länk till admingränssnittet i account.lib.</li>
-        <li>Visar nu genererat reservationsnummer fån middlenamefältet</li>
+        <li>Visar nu genererat reservationsnummer från middlenamefältet</li>
       </ul>
     </div>
     <h4>18 mars</h4>
