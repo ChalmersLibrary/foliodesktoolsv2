@@ -5,7 +5,7 @@
       <slot />
     </main>
     <footer class="noprint" v-if="authenticated">
-      FolioDiskApp v.2.0
+      FolioDiskApp
     </footer>
   </div>
 </template>
@@ -52,6 +52,7 @@
 
   footer {
     flex-shrink: 0;
+    text-align: center;
   }
   @media print {
     main {
