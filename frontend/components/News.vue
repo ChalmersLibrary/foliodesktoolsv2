@@ -1,6 +1,12 @@
 <template>
   <div>
     <h3>Nyheter i diskappen</h3>
+    <h4>5 augusti 2026</h4>
+    <div>
+      <ul>
+        <li>Tog bort förnamn från rensning av reservationshylla</li>
+      </ul>
+    </div>
     <h4>18 juni</h4>
     <div>
       <ul>
