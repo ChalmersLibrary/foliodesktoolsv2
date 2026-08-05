@@ -5,7 +5,7 @@
     <div class="shelfList avoidPageBreak" v-for="request in sortedShelfList" key="request.id">
       <!-- Sortera på namn -->
       <span>Reservationsnummer: </span>
-      <strong>{{ request.requester.firstName }} {{ request.requester.middleName }}</strong><br />
+      <strong>{{ request.requester.middleName }}</strong><br />
       <span>Titel:</span> {{ request.instance.title }}
        <!-- ({{request.item.barcode }}) -->
        <br />
