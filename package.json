@@ -17,12 +17,15 @@
     "frontend"
   ],
   "dependencies": {
-    "@indexdata/foliojs": "^1.1.0",
+    "@indexdata/foliojs": "github:larkov/foliojs#packageuprades",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "saml2-js": "^4.0.4"
+  },
+  "overrides": {
+    "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
