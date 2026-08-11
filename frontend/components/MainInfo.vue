@@ -11,6 +11,6 @@
     <h3>Använda diskappen på mobilen</h3>
     <p>Sök upp https://foliodiskapp.lib.chalmers.se/</p>
     <p>Lägg länken på startskärmen. </p>
-    <p>Iphone: Klicka på "Dela länk" i verktygsfältet och sedan "Lägg till på hemskärmen"</p>
+    <p>Iphone: Klicka på "Dela länk" i verktygsfältet och sedan "Lägg till på hemskärmen".</p>
   </div>
 </template>
