@@ -17,7 +17,7 @@
     "frontend"
   ],
   "dependencies": {
-    "@indexdata/foliojs": "github:larkov/foliojs#packageuprades",
+    "@indexdata/foliojs": "github:indexdata/foliojs",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
