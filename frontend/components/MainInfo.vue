@@ -9,8 +9,8 @@
     <p>I Chrome liknar den en dator med pil nedåt. Edge-ikonen visas nedan.</p>
     <img src="/img/Install-web-app-icon-edge.png">
     <h3>Använda diskappen på mobilen</h3>
-    <p>Sök upp https://foliodiskapp.lib.chalmers.se/<br>
-    Lägg länken på startskärmen. <br>
-    Iphone: Klicka på dela länk i verktygsfältet och sedan "Lägg till på hemskärmen"</p>
+    <p>Sök upp https://foliodiskapp.lib.chalmers.se/</p>>
+    <p>Lägg länken på startskärmen. </p>
+    <p>Iphone: Klicka på "Dela länk" i verktygsfältet och sedan "Lägg till på hemskärmen"</p>
   </div>
 </template>
