@@ -4,6 +4,8 @@
   <b>Finns inte ditt bibliotek med?</b>
   Då finns det inte heller något att plocka fram.
   <br><br>
+    <b>Fjärr-in tar hand om all hämtning från depån (Remote).</b>
+  <br><br>
   <b>Status In process</b><br>
    <ol>
   <li>HB &amp; Kuggen: Hämta i FjärrIn-rummet på HB.<br>
