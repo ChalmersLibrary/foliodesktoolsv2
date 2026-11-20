@@ -5,7 +5,7 @@
   Då finns det inte heller något att plocka fram.
   <br><br>
     <b>Material från depån (Remote).</b><br>
-    Fjärr-in-kollegor hämtar dem under dagen, låt dem bara vara kvar på listan.
+   Lämna kvar på listan. Fjärr-in-kollegor hämtar under dagen.
   <br><br>
   <b>Status In process</b><br>
    <ol>
