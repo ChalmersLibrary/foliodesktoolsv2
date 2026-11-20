@@ -25,7 +25,10 @@
     "saml2-js": "^4.0.4"
   },
   "overrides": {
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "readdir-glob": {
+      "minimatch": "^11.0.1"
+    }
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
