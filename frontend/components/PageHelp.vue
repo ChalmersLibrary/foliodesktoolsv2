@@ -5,7 +5,7 @@
   Då finns det inte heller något att plocka fram.
   <br><br>
     <b>Material från depån (Remote).</b><br>
-   Lämna kvar på listan. Fjärr-in-kollegor hämtar under dagen.
+   Lämna kvar på listan, Fjärr-in-kollegor hämtar under dagen. <a href="https://chalmers.sharepoint.com/:w:/r/sites/ChalmersBibliotekssystemmedia/Shared%20Documents/01%20Dokument/03%20Manualer%20Infodisk%20och%20e-support/L%C3%A4sesalsl%C3%A5n/L%C3%A4sesalsl%C3%A5n%20(In-library%20use%20only)%20rutin%20infodisk.docx?d=wa7a9a7fbce1f45279ac2b6fb90980267&csf=1&web=1&e=A4YtXd">Läsesalslån - lathund</a>
   <br><br>
   <b>Status In process</b><br>
    <ol>
